@@ -2,9 +2,11 @@ class Solution {
 public:
     int alternatingSum(vector<int>& nums) {
         int ans = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            if (i % 2 == 0) ans += nums[i];
-            else ans -= nums[i];
+        if(nums.size()%2==1){
+            ans=ans+nums[nums.size()-1];
+        }
+        for(int i=0;i<nums.size()-1;i+=2){
+            ans+=nums[i]-nums[i+1];
         }
         return ans;
     }
